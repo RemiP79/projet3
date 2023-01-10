@@ -140,10 +140,7 @@ li:hover {
 	margin : 0 auto 30px;
 	
 }
-#boutonTous {
-	color: white;
-	background-color: #1D6154;
-}
+
 input[type="button"]{
 	padding-top : 10px;
 	padding-bottom : 10px;
@@ -157,6 +154,11 @@ input[type="button"]{
 	border-radius: 60px ;
 	
 }
+.notVisible {
+	display :none;
+}
+
+
 
 /* = = = = = = = */
 .gallery {

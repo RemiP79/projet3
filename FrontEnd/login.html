@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<title>Login Sophie Bluel - Architecte d'intérieur</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,12 +13,12 @@
 </head>
 <body>
 <header>
-	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li>login</li>
+			<li><a href = "index.html#portfolio">projets</a></li>
+			<li><a href = "index.html#contact">contact</a></li>
+			<li id = "login">login</li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -26,20 +26,20 @@
 <main>
     <div id="cadreConnection">
     <h2>Log In</h2>
-    <form method="post" action = "">
+    <form method="post" action = "">    <!--ENLEVER LA METHODE POST ?-->
         
            
             <label for="email" class ="labelConnex">E-mail</label></br>
-            <input type = "email" name="email" id="email" class ="inputConnex"/></br>
+            <input type = "email" name="email" id="email" class ="inputConnex" required="required" placeholder="nom.prenom@test.tld"/></br>
       
         
             <label for="mdp" class ="labelConnex">Mot de passe</label></br>
-            <input type = "email" name="email" id="email" class ="inputConnex"/>
+            <input type = "password" name="mdp" id="mdp" class ="inputConnex" required="required" placeholder = "Entrez votre mot de passe"/>
         
     </form>
     <label for="seConnecter"></label>
-    <input type = "submit" value="Se connecter" name="seConnecter" id="seConnecter"/>
-    <a href="#" id = "mdpOublie">Mot de passe oublié</a>
+    <button  type = "submit" value="Se connecter" name="seConnecter" id="seConnecter">Se connecter</button>
+    <p id = "mdpOublie">Mot de passe oublié</p>
 </div>
 	
 </main>
@@ -52,6 +52,6 @@
 	</nav>
 </footer>
 
-
+<script src = "login.js"></script>
 </body>
 </html>

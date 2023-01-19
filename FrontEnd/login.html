@@ -12,45 +12,40 @@
     <link rel="stylesheet" href="./assets/login.css">
 </head>
 <body>
-<header>
-	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-	<nav>
-		<ul>
-			<li><a href = "index.html#portfolio">projets</a></li>
-			<li><a href = "index.html#contact">contact</a></li>
-			<li id = "login">login</li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-		</ul>
-	</nav>
-</header>
-<main>
-    <div id="cadreConnection">
-    <h2>Log In</h2>
-    <form method="post" action = "">    <!--ENLEVER LA METHODE POST ?-->
-        
-           
-            <label for="email" class ="labelConnex">E-mail</label></br>
-            <input type = "email" name="email" id="email" class ="inputConnex" required="required" placeholder="sophie.bluel@test.tld"/></br>
-      
-        
-            <label for="mdp" class ="labelConnex">Mot de passe</label></br>
-            <input type = "password" name="mdp" id="mdp" class ="inputConnex" required="required" placeholder = "Entrez votre mot de passe"/>
-        
-    </form>
-    <label for="seConnecter"></label>
-    <button  type = "submit" value="Se connecter" name="seConnecter" id="seConnecter">Se connecter</button>
-    <p id = "mdpOublie">Mot de passe oublié</p>
-</div>
-	
-</main>
+	<header>
+		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+		<nav>
+			<ul>
+				<li><a href = "index.html#portfolio">projets</a></li>
+				<li><a href = "index.html#contact">contact</a></li>
+				<li id = "login">login</li>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	</header>
 
-<footer>
-	<nav>
-		<ul>
-			<li>Mentions Légales</li>
-		</ul>
-	</nav>
-</footer>
+	<main>
+		<div id="cadreConnection">
+			<h2>Log In</h2>
+			<form method="post" action = "">    <!--ENLEVER LA METHODE POST ?-->
+					<label for="email" class ="labelConnex">E-mail</label></br>
+						<input type = "email" name="email" id="email" class ="inputConnex" required="required" placeholder="sophie.bluel@test.tld"/></br>
+					<label for="mdp" class ="labelConnex">Mot de passe</label></br>
+						<input type = "password" name="mdp" id="mdp" class ="inputConnex" required="required" placeholder = "Entrez votre mot de passe"/>
+			</form>
+			<label for="seConnecter"></label>
+				<button  type = "submit" value="Se connecter" name="seConnecter" id="seConnecter">Se connecter</button>
+			<p id = "mdpOublie">Mot de passe oublié</p>
+		</div>		
+	</main>
+
+	<footer>
+		<nav>
+			<ul>
+				<li>Mentions Légales</li>
+			</ul>
+		</nav>
+	</footer>
 
 <script src = "login.js"></script>
 </body>

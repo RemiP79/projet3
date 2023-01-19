@@ -7,18 +7,17 @@ const createWorks = (data)  => {
   let figure = document.createElement("figure");
   let img = document.createElement("img");
   let figcaption = document.createElement("figcaption");
-  let gallery = document.getElementById("gallery");     // création d'un Id gallery dans index.html
+  let gallery = document.getElementById("gallery");     
     
-  figure.setAttribute("data-cat",data.categoryId);     //pour récupérer les catégories
+  figure.setAttribute("data-cat",data.categoryId);     
   figure.setAttribute("id", `fig_${data.id}`);          //permettre la suppression des travaux
   figure.setAttribute("class", "fig");
-  img.setAttribute("crossorigin","anonymous");          //Rajouté pour que chrome affiche les images
+  img.setAttribute("crossorigin","anonymous");          
   img.setAttribute("src",data.imageUrl);
   img.setAttribute("alt",data.title);
-  figcaption.textContent = data.title;    // préférable d'utiliser textContent à innerHTML pour des raisons de sécurité
+  figcaption.textContent = data.title;    
              
-  figure.append(img,figcaption);  
-  //insertInModal(data);         // utilisé pour creer la collection dans la modale    
+  figure.append(img,figcaption);     
   gallery.append(figure);
 };
 
@@ -29,20 +28,36 @@ const createWorks = (data)  => {
 const createWorksModale = (data)  => { 
   let figure = document.createElement("figure");
   let img = document.createElement("img");
+  let iconePoub = document.createElement("i");
   let figcaption = document.createElement("figcaption");
-  let gallery2 = document.getElementById("gallery2");     // création d'un Id gallery dans index.html
-    
-  figure.setAttribute("data-cat",data.categoryId);     //pour récupérer les catégories
+  let gallery2 = document.getElementById("gallery2");     
+  let div = document.createElement("div");
+  let iconeFleche = document.createElement("i");  
+
+  figure.setAttribute("data-cat",data.categoryId);     
   figure.setAttribute("id", `fig_${data.id}`);          //permettre la suppression des travaux
   figure.setAttribute("class", "fig");
-  img.setAttribute("crossorigin","anonymous");          //Rajouté pour que chrome affiche les images
+  img.setAttribute("crossorigin","anonymous");          
   img.setAttribute("src",data.imageUrl);
   img.setAttribute("alt",data.title);
-  figcaption.textContent = "Editer";    // préférable d'utiliser textContent à innerHTML pour des raisons de sécurité
-             
-  figure.append(img,figcaption);  
+  img.setAttribute("class","imgGall2");
+  figcaption.textContent = "Editer";    
+  iconePoub.setAttribute("class","fa-solid fa-trash-can iconePoub");
+  iconePoub.setAttribute("id", `fig_${data.id}`); 
+  iconeFleche.setAttribute("class", "fa-solid fa-arrows-up-down-left-right iconeFleche"); 
+  
+  div.append(iconeFleche,iconePoub);
+  figure.append(div,img,figcaption);  
   gallery2.append(figure);
+  iconeFleche.addEventListener("click", () => {
+  alert ("en cours de réalisation");
+  });
 };
+
+const supprGallerie = document.getElementById ("supprGallerie");
+supprGallerie.addEventListener("click", () => {
+  alert ("en cours de réalisation");
+});
 
 // ===========================création de la boite de selection de catégories dans la modale
 
@@ -69,10 +84,10 @@ const createWorksByCat = (data)  => {
   let boutonTous = document.createElement("input");    
     boutonTous.setAttribute("type","button");
     boutonTous.setAttribute("value","  Tous  ");
-    boutonTous.setAttribute("class","boutonFiltre");        //mise en forme CSS
+    boutonTous.setAttribute("class","boutonFiltre");        
     boutonTous.setAttribute("class", "cat");                
     boutonTous.setAttribute("class", "boutonTous");
-    boutonTous.setAttribute("id","0");                      // va servir pour l'affichage filtré des travaux
+    boutonTous.setAttribute("id","0");                      
     boutonTous.addEventListener("mouseover", () => {
       mouseov(boutonTous);
     })
@@ -115,12 +130,17 @@ const mouseOut = (e) => {
   e.style.background = "white";
 }
 
+
+/**
+ * 
+ * @param {event} e  //filtrer les projets sur page d'accueil
+ */
 const clickBouton = (e) => {
   const allClass = document.getElementsByClassName("fig");
   for (let elem of allClass) {
-    if (e.target.id !== "0") {                           // si l'id est différent de 0 (on vise les autres boutons)
+    if (e.target.id !== "0") {                           
       if (elem.dataset.cat !== e.target.id) {           // dataset fait reference au data-cat de figure target correspond à l'id de l'evenement
-        elem.classList.add("notVisible");               //Si l'id de la data-cat est différent de l'id de l'element cliqué, on le notVisible
+        elem.classList.add("notVisible");               
       }else{
         if (elem.classList.contains("notVisible")) {
           elem.classList.remove("notVisible");
@@ -135,18 +155,22 @@ const clickBouton = (e) => {
 };
 
 
-//======================création d'une fonction getData qui est asynchrone
+
+
+/**
+ * @param {objet} //Affichage des projets (création d'une fonction getData qui est asynchrone)
+ */
 const getData = async() => {
-  try {                                                                //définit une reponse catch si une instruction provoque une exception
-    const respons = await fetch("http://localhost:5678/api/works/")    // l'utilisation de async : respons = attend le resultat du fetch
-     if (!respons.ok) {                                                // si le resultat du fetch ne fonctionne pas (ok = false dans la console) 
-      throw new Error (`Erreur : ${respons.status}`);                  // le programme s'arrête (throw) et crée un nouvel objet Error qui donne le status (200 = ok, 404...)
-    }                                                                  // utilisation des `(alt Gr+7) pour afficher le message d'erreur
-    const data = await respons.json();                                 // constante data qui attend et récupère la respons au format json avant de se lancer
+  try {                                                                
+    const respons = await fetch("http://localhost:5678/api/works/")    
+     if (!respons.ok) {                                                
+      throw new Error (`Erreur : ${respons.status}`);                  // le programme s'arrête (throw) 
+    }                                                                  
+    const data = await respons.json();                                 
     let categoryIds = [];                                              // création de tableaux qui vont nous permettre de gerer l'affichage selectif des travaux
     let categorys = [];
         
-    for (let elem of data) {                                           // création de la boucle pour récupérer les elements de l'objet data nécessaire à l'affichage
+    for (let elem of data) {                                           
       createWorks(elem);
       createWorksModale(elem); 
       if (!categoryIds.includes(elem.categoryId)) {
@@ -154,11 +178,9 @@ const getData = async() => {
         categorys.push(elem.category);                                // utilisé pour différencier les category lors du click
         }            
     }    
-    createWorksByCat(categorys); 
-    // TODO fonction de test qui va tester (if is connected) --> pour cela aller faire un getItem (auth) dans localStorage
-    isConnected ();  
-  
-      }    
+    createWorksByCat(categorys);     
+    isConnected ();    
+  }    
   catch (error) {
     alert (error);
   }    
@@ -167,47 +189,33 @@ getData();                                                             //On appe
 
 
 
-const isConnected = () => { 
-  
-  //if (localStorage.getItem("auth")) {
-        console.log("tout va bien connexion");
+const isConnected = () => {   
+  if (localStorage.getItem("auth")) {                            // Verification si l'utilisateur est authentifié
         const modifier = document.getElementById("modifier");
         modifier.classList.toggle("notVisible"); 
-        
-        // Get the modal
 
-        modifier.addEventListener("click", openModal);   // ecrire une fonction open modale à la ligne 203 qui structure la modale
-            // Get the <span> element that closes the modal
-        //let spans = document.getElementsByClassName("clos");
-        //for (let span of spans) {
-      //   span.addEventListener("click", () => {
-        //    closeModal();
-        //  });
-   // }
-    // Get the <span> element that closes the modal
-    document.getElementById("x").addEventListener("click", () => {
-      document.getElementById("barreNoire").style.display = "none";
- document.getElementById("modale").style.display = "none";
-    });
+        const modifier2 = document.getElementById("modifier2");
+        modifier2.classList.toggle("notVisible"); 
 
- /*document.getElementById("modale").addEventListener("click", () => {
-  document.getElementById("barreNoire").style.display = "none";
-document.getElementById("modale").style.display = "none";
-)};*/
-
-      //document.getElementById("winModale").classList.toggle("notVisible");
-      
-     // toggleModal();      // croix pour fermer la modale
-     // console.log ("clik ok");
-    
-  
+        document.getElementById("barreNoire").style.display = "flex"; 
+        modifier.addEventListener("click", openModal);   
+        modifier2.addEventListener("click", openModal);    
+    }    
+    // Fermeture modale
+  document.getElementById("x").addEventListener("click", () => {      
+    document.getElementById("modale").style.display = "none"; 
+  });
+  window.addEventListener('click', outsideClick);      
 };
+
+function outsideClick(e){
+  if(e.target == modale){
+    modale.style.display = 'none';
+  }
+}
 
 const openModal = () =>{  
  document.getElementById("barreNoire").style.display = "flex";
  document.getElementById("modale").style.display = "flex";
 }
-/*const toggleModal = () => {
-  document.getElementById("modale").classList.toggle("notVisible");
-  document.getElementById("winModale").classList.toggle("notVisible");
-}*/
+

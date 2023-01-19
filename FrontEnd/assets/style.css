@@ -116,6 +116,7 @@ li:hover {
 }
 #introduction h2 {
 	margin-bottom: 1em;
+	
 }
 
 
@@ -132,35 +133,35 @@ li:hover {
 
 /* PARTIE AJOUTEE */
 a {
-	text-decoration: none;
 	color : inherit;
+	text-decoration: none;
+	
 }
 
 #portfolio #sectionFiltres {
 	display : flex;
 	flex-wrap : wrap;
 	justify-content : space-between;
-	width : 65%;
-	margin : 0 auto 30px;
-	
+	margin : 0 auto 30px;	
+	width : 65%;	
 }
 
 
 input[type="button"] {
-	padding-top : 10px;
-	padding-bottom : 10px;
+	background-color: white;	
+	border : 1px solid #1D6154;
+	border-radius: 60px ;	
+	color: #1D6154;	
 	font-family: 'Syne';
 	font-size : 120%;
 	font-weight: 700;
-	color: #1D6154;
-	border : 1px solid #1D6154;
-	background-color: white;		
-	text-align: center;
-	border-radius: 60px ;
-	
+	padding-top : 10px;
+	padding-bottom : 10px;		
+	text-align: center;	
 }
+
 .notVisible {
-	display :none;
+	display :none; 
 }
 
 .boutonFiltre:hover {
@@ -170,142 +171,158 @@ input[type="button"] {
 
 
 #modifier {
+	margin-bottom: 30px;
+	padding-bottom : 1em;
+}
+
+#modifier2{
+	margin-top : 0.7em;
+	margin-left : 1.5em;	
+}
+
+#modifierMesProjets {
+	display : flex;
+	justify-content: center;
 	margin-bottom: none;
 }
+
 #barreNoire {
-	width : 100%;
+	align-items :center;
+	background-color : black;
 	display : none;
 	flex-direction : row;
-	align-items :center;
-	justify-content: center;
-	background-color : black;
 	height : 40px;
+	justify-content: center;
+	width : 100%;
 	z-index : 2000;
-
 }
-#barreNoire p {
-	margin : auto 5px;
+
+#barreNoire p {	
 	color : white;
-	font-size: 120%;
-	
+	font-size: 120%;	
+	margin : auto 5px;
 }
 
-#publierLesChangements {
-	
+#publierLesChangements {	
 	border : 2px solid black;
 	background-color : white;
 	border-radius : 40px;
-	height : 30px;
-	width : 20%;
 	font-size: 100%;
+	height : 30px;	
 	margin : auto 5px;
+	width : 20%;
 }
 
 #modale {
-	display : none;
-	justify-content : center;
-	width : 100%;
-	height : 3500px;
 	background-color: rgba(0,0,0,0.3);
-	z-index:1000;
-	position : absolute;
+	display : none;
+	height : 3500px;
+	justify-content : center;
 	left : 0;
-	top : 40px;
 	margin-top : 0;
+	position : absolute;
+	top : 40px;
+	width : 100%;
+	z-index:1000;
 }
 
 
 
 #winModale {
-display : flex;
-/*justify-content : center;*/
-margin-top : 20px;
-padding-top : 25px;
-flex-direction : column;
-
-/*position : fixed;*/
-width : 50%;
-height : 25%;
-background-color : #FCFCF6;
-/*top : 150px;*/
-border-radius : 10px;
-/*top : 200px;*/
-
+	background-color : #FCFCF6;
+	border-radius : 10px;
+	display : flex;	
+	flex-direction : column;	
+	height : 25%;	
+	margin-top : 20px;
+	padding-top : 25px;
+	width : 50%;
 }
 
 #x {
+	font-weight: bold;	
+	padding-right : 30px;	
 	text-align: right;
-	padding-right : 30px;
-	font-weight: bold;
-	
 }
-#titreModale {
-	text-align : center;
-	/*margin-top : 50px;*/
+
+#titreModale {	
 	font-size : 150%;
 	padding-top : 0;
+	text-align : center;
 }
 
 #gallery2 {
-	margin : 20px auto 0;
 	display : flex;	
+	flex-wrap : wrap;	
 	justify-content : space-between;
-	flex-wrap : wrap;
+	margin : 20px auto 0;	
 	width : 70%;
-	height : 40%;
-	padding-bottom : 20px;
-	/*display : grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-column-gap: 10px;
-	grid-row-gap: 20px;*/
 }
-#gallery2 figure {
-	width : 15%;
+
+#gallery2 figure {	
 	margin : 0 5px;
+	width : 15%;
 }
-#gallery2 img {
-	width : 100%;
-	
+.imgGall2 {	
 	margin-top : 10px;
+	width : 100%;	
+}
+
+.iconePoub {
+	background-color: black;
+	color: white;
+	left: 45%;
+	position: relative;    
+    top: 30px;    
+    text-align: center;
+    padding: 4px;
+	font-size : 0.5em;	
+}
+
+.iconeFleche {
+	background-color: black;
+	color: white;
+	font-size : 0.5em;
+    left: 40%;
+    padding: 4px;
+	position: relative;     
+    text-align: center;       
+    top: 30px;	
 }
 
 #gallery2 figcaption {
 	font-size: 60%;
 }
 
-
-
 #trait {
-	margin : 30px auto 0;
-	/*padding-bottom : 40px;*/
-	width : 70%;
 	border-bottom : 2px solid grey;
+	margin : 30px auto 0;	
+	width : 70%;	
 }
-#ajouterPhoto{
 
-	padding-top : 10px;
-	padding-bottom : 10px;
+#ajouterPhoto{
+	background-color: #1D6154;	
+	border : 1px solid #1D6154;
+	border-radius: 60px;
+	color: white;
 	font-family: 'Syne';
 	font-size : 120%;
 	font-weight: 700;
-	color: white;
-	border : 1px solid #1D6154;
-	background-color: #1D6154;		
-	text-align: center;
-	border-radius: 60px ;
-	width : 40%;
-	margin : 50px auto 20px;
-	
+	margin : 50px auto 20px;	
+	padding-bottom : 10px;
+	padding-top : 10px;		
+	text-align: center;	
+	width : 40%;	
 }
 
 #supprGallerie {
-	text-align : center;
-	/*margin-top : 50px;*/
+	color : #CF5035;
+	font-family: 'Syne';
 	font-size : 100%;
 	padding-top : 0;
-	font-family: 'Syne';
-	color : #CF5035;
+	text-align : center;	
 }
+
 /* = = = = = = = */
 .gallery {
 	width: 100%;

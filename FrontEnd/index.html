@@ -12,21 +12,38 @@
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-	<div class="notVisible" id="barreNoire" >
-		<p>Mode édition</p>
-		<label for="publierLesChangements"></label>
-		<button  type = "submit" value="publierLesChangements" name="publierLesChangements" id="publierLesChangements">publier les changements</button>
-	</div>
 	<section id="modale">
-		<div id="winModale">
-			<p class="closeModal" id="x"><i class="fa-solid fa-xmark"></i></p>
-			<p id="titreModale">Galerie photo</p>
-			<div id="gallery2" class="gallery2"></div>
-			<div id="trait"></div>
-			<label for="ajouterPhoto"></label>
-			<button  type="submit" value="ajouterPhoto" name="ajouterPhoto" id="ajouterPhoto">Ajouter une Photo</button>
-			<p id="supprGallerie">Supprimer la gallerie</p>		
+		<div id="barreNoire" >
+			<p>Mode édition</p>
+			<label for="publierLesChangements"></label>
+			<button  
+				type = "submit" 
+				value="publierLesChangements" 
+				name="publierLesChangements" 
+				id="publierLesChangements">
+				publier les changements
+			</button>
 		</div>
+		
+			<div id="winModale">
+				<p class="closeModal" id="x">
+					<i class="fa-solid fa-xmark"></i>
+				</p>
+				<p id="titreModale">Galerie photo</p>
+				<div class="cadreWinmod">
+					<div id="gallery2" class="gallery2"></div>
+					<div class="trait"></div>
+				</div>
+				<label for="ajouterPhoto"></label>
+				<button  
+					type="submit" 
+					value="ajouterPhoto" 
+					name="ajouterPhoto" id="ajouterPhoto">
+					Ajouter une Photo
+				</button>
+				<p id="supprGallerie">Supprimer la gallerie</p>		
+			</div>
+			<div id="winModaleAdd"></div>
 	</section>
 
 <header>	

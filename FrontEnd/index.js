@@ -35,7 +35,7 @@ const createWorksModale = (data)  => {
   let iconeFleche = document.createElement("i");  
 
   figure.setAttribute("data-cat",data.categoryId);     
-  figure.setAttribute("id", `fig_${data.id}`);          //permettre la suppression des travaux
+  figure.setAttribute("id", `mod_${data.id}`);          //permettre la suppression des travaux
   figure.setAttribute("class", "fig");
   img.setAttribute("crossorigin","anonymous");          
   img.setAttribute("src",data.imageUrl);
@@ -43,13 +43,13 @@ const createWorksModale = (data)  => {
   img.setAttribute("class","imgGall2");
   figcaption.textContent = "Editer";    
   iconePoub.setAttribute("class","fa-solid fa-trash-can iconePoub");
-  iconePoub.setAttribute("id", `fig_${data.id}`); 
+ // iconePoub.setAttribute("id", `poub_${data.id}`); 
   iconeFleche.setAttribute("class", "fa-solid fa-arrows-up-down-left-right iconeFleche"); 
   
   div.append(iconeFleche,iconePoub);
   figure.append(div,img,figcaption);  
   gallery2.append(figure);
-  iconeFleche.addEventListener("click", () => {
+  iconeFleche.addEventListener("mouseover", () => {
   alert ("en cours de réalisation");
   });
 };
@@ -90,7 +90,11 @@ const windowModaleAdd = (data) => {
 
   const iconeClose=document.createElement("i");
   iconeClose.setAttribute("class","fa-solid fa-xmark");
-
+  iconeClose.addEventListener("click", () => {
+    document.getElementById("modale").style.display = "none";
+    document.getElementById("winModale").style.display = "none";
+    document.getElementById("winModaleAdd").style.display = "none";
+  })
   const titre = document.createElement("p");
   titre.textContent="Ajout photo";
   titre.setAttribute("id", "titreModale2");
@@ -103,14 +107,26 @@ const windowModaleAdd = (data) => {
   const imageModif= document.createElement("i");
   imageModif.setAttribute("class","fa-regular fa-image");
   imageModif.setAttribute("id","imageModif");
+  const preview = document.createElement("img");
+  preview.setAttribute("alt","projet selectionné");
 
 
+  const divLabelFile = document.createElement("div")
+  divLabelFile.setAttribute("id","divLabelFile");
+  const labelInputFile=document.createElement("label");
+  labelInputFile.setAttribute("for","file");
+  labelInputFile.setAttribute("id","labelInputFile");
+  const inputFile = document.createElement("input");
+  inputFile.setAttribute("type", "file");
+  inputFile.setAttribute("id", "file");
+  //inputFile.setAttribute("name", "labInputFile"); //
+  inputFile.setAttribute("accept", ".png,.jpg,.jpeg");
   const labelButtonModif=document.createElement("label");
-  labelButtonModif.setAttribute("for", "ajoutPhoto");
+  //labelButtonModif.setAttribute("for", "ajoutPhoto");
   const buttonModif=document.createElement("button");
-  buttonModif.setAttribute("type","submit");
-  buttonModif.setAttribute("value","ajoutPhoto");
-  buttonModif.setAttribute("name","ajoutPhoto");
+  //buttonModif.setAttribute("type","submit");
+  //buttonModif.setAttribute("value","ajoutPhoto");
+  //buttonModif.setAttribute("name","ajoutPhoto");
   buttonModif.setAttribute("id","ajoutPhoto");
   buttonModif.textContent ="+ Ajouter Photo";
 
@@ -118,11 +134,11 @@ const windowModaleAdd = (data) => {
   infoTypeImg.textContent="jpg,png 4mo max";
 
   const formulaire=document.createElement("form");
-  formulaire.setAttribute("method","post");
-  formulaire.setAttribute("action","AA");
+ //formulaire.setAttribute("method","");
+  //formulaire.setAttribute("enctype", "multipart/form-data");
+ // formulaire.setAttribute("action","");
+  //formulaire.setAttribute("for", "")
   formulaire.setAttribute("id","formAjoutPhoto");
-
-  const br=document.createElement("br");
 
   const labelTitre=document.createElement("label");
   labelTitre.setAttribute("for", "labelTitreAjout");
@@ -130,15 +146,15 @@ const windowModaleAdd = (data) => {
   labelTitre.textContent="Titre";
 
   const inputText=document.createElement("input");
-  inputText.setAttribute("type", "textAjoutPhoto");
-  inputText.setAttribute("name", "textAjoutPhoto");
+  inputText.setAttribute("type", "text");
+  inputText.setAttribute("name", "labelTitreAjout");
   inputText.setAttribute("id", "textAjoutPhoto");
   inputText.setAttribute("class", "inputTextAjout");
   inputText.setAttribute("required", "required");
   inputText.setAttribute("placeholder", "Donnez un nom à votre projet");
 
   const labelOption=document.createElement("label");
-  labelOption.setAttribute("for","selectCategory");
+  labelOption.setAttribute("for","catges");
   labelOption.textContent = "Catégorie";
   labelOption
   const optionCategory=document.createElement("select");
@@ -150,7 +166,7 @@ const windowModaleAdd = (data) => {
 
   for(let elem of data) {  
     let cat = document.createElement("option");
-    optionCategory.appendChild(cat);  // ==> ==> INSERER LE CATGES AU BON ENDROIT DANS LE HTML
+    optionCategory.appendChild(cat);  
     cat.value = elem.id;
     cat.textContent = elem.name;
   }
@@ -158,22 +174,61 @@ const windowModaleAdd = (data) => {
   const trait=document.createElement("div");
   trait.setAttribute("class","trait");
 
+ 
+
+
   const labelAddPhotoValider=document.createElement("label");
   labelAddPhotoValider.setAttribute("for", "validModifPhoto");
   const addPhotoValider=document.createElement("button");
-  addPhotoValider.setAttribute("type","submit");
-  addPhotoValider.setAttribute("value","Valider");
-  addPhotoValider.setAttribute("name","validModifPhoto");
+  //addPhotoValider.setAttribute("type","submit");
+ // addPhotoValider.setAttribute("value","Valider");
+  //addPhotoValider.setAttribute("name","validModifPhoto");
   addPhotoValider.setAttribute("id","validModifPhoto");
   addPhotoValider.textContent="Valider";
 
+  const tooltip = document.createElement("p");
+  tooltip.setAttribute("id", "tooltipAddImg");
+  
+  
+  addPhotoValider.addEventListener("click", () => {
+      if (inputText.value === "" || optionCategory.value==="" || inputFile.value===""){
+        addPhotoValider.disabled = true;
+        alert ("Vous devez remplir tous les champs");
+      if(inputText.value === "") {
+        inputText.style.border ="2px solid red";
+      }
+      if(optionCategory.option=selectVide) {
+        optionCategory.style.border = "2px solid red";
+      }
+      addPhotoValider.disabled = false;
+      }else{  
+        inputText.style.border ="none";
+        optionCategory.style.border = "none";
+
+        document.getElementById("file").addEventListener("change",ChangeImg);
+        envoiNouveauProjet(labelInputFile);
+        //alert("ok");
+        
+
+      }
+     
+        
+      });
+
+  
+
+  
+
+  divLabelFile.append(labelInputFile,inputFile,/*labelButtonModif,*/buttonModif);
   div.append(iconeRetour,iconeClose)
-  div1.append(imageModif,labelButtonModif,buttonModif,infoTypeImg);
-  div2.append(div1,formulaire,trait);
-  formulaire.append(labelTitre,inputText,labelOption,optionCategory);
-  winModaleAdd.append(div,titre,div2,labelAddPhotoValider,addPhotoValider);
+  div1.append(imageModif,divLabelFile,infoTypeImg);
+  formulaire.append(div1,labelTitre,inputText,labelOption,optionCategory,trait,labelAddPhotoValider,addPhotoValider);
+  div2.append(formulaire);  
+  winModaleAdd.append(div,titre,div2);
 
 }
+
+
 
 /**
  * 
@@ -340,3 +395,71 @@ const openModal = () =>{
 
 }
 
+
+
+
+let img = {
+  file : "",
+  filename : "",
+};
+
+const envoiNouveauProjet = async(e) => {
+  //e.preventDefault();
+   let choixCatUser = document.getElementById("catges");
+
+  let formData = new FormData();
+  formData.append("image",img.file,/*img.filename*/);
+  formData.append("title",document.getElementById("textAjoutPhoto"));
+  formData.append("category",choixCatUser.options[choixCatUser.selectedIndex].value )
+
+  const url = "http://localhost:5678/api/works";
+  
+  if(!localStorage.getItem("auth")){
+    alert ("Problème de connexion");
+    return false;  
+  }
+  const auth = JSON.parse(localStorage.getItem("auth"));
+  try {
+    const Opt = {
+      method : "POST",
+      headers : {
+        Accept : "application/json",
+        //Content : "multipart/form-data",
+        Authorization: "Bearer " + auth.token,
+      },
+      body : formData,
+    };
+
+    const resp = await fetch (url, Opt);
+    if(!resp) {
+      throw new Error(
+        `Erreur réponse Fetch  type : ${resp.status}`
+      );
+    }
+
+    const newWork = await resp.json();
+    createWorks(newWork);
+  }
+  catch(error){
+    alert(error);
+  }
+ 
+};
+
+const ChangeImg = (e) =>{
+  if (document.getElementById("thumbi") !==null) {
+    document.getElementById("thumbi").remove();
+  }
+
+  let imageMin=document.createElement("img");
+  imageMin.setAttribute("id","thumbi");
+  console.log(e.target.files);
+  if(e.target && e.target.files[0]) {
+    img.file=e.target.files[0];
+    img.filename=e.target.files[0].name;
+  }
+  imageMin.file = e.target.files[0];
+  //reader.readAsDataUrl(img.file);
+  document.getElementById("imageModif").classList.add("notVisible");
+
+}

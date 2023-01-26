@@ -33,10 +33,10 @@ const verifMdp = () => {
 };
 
 document.getElementById ("seConnecter").addEventListener ("click", () => {
-    if (!verifMail()){ alert ("Identifiant non conforme");
+    if (!verifMail()){ alert ("Erreur dans l’identifiant ou le mot de passe");
     return                                          // arret de la fonction
     }
-    if (!verifMdp()) {alert ("Mot de passe non conforme");
+    if (!verifMdp()) {alert ("Erreur dans l’identifiant ou le mot de passe");
     return
     }        
     const contact = {

@@ -380,6 +380,10 @@ input[type="button"] {
     width: 100%;
     background-color: #B2CDD2;
     color: #0D7B8D;
+	/*VOrem*/
+	text-align: center;
+    width: 60%;
+    margin: 30px auto;
 	
 }
 
@@ -435,15 +439,18 @@ input[type="button"] {
 }
 
 #divLabelFile{
-	display: inline-block;
+	/*display: inline-block;*/
+	display : flex;
+	flex-direction: column;
   position: relative;
   overflow: hidden;
+  width : 100%;
 }
 
 #file {
 	left: 0;
   top: 0;
-	/*opacity : 0;*/
+  opacity : 0;
   position: absolute;
   width : 100%;
   height : 100%;	
@@ -452,6 +459,16 @@ input[type="button"] {
 .iconePoub,  #modifier, #modifier2, .iconeFleche, #supprGallerie, #ajouterPhoto,
  #x, .fa-arrow-left, .fa-xmark, #boutonTypeFile{
 	cursor :pointer;
+}
+
+#preview {
+	object-fit: scale-down;
+    text-align: center;
+}
+
+#thumbi {
+	max-height: 200px;
+    max-width: 50%;
 }
 
 /* = = = = = = = */

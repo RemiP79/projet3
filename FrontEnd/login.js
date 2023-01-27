@@ -9,11 +9,9 @@ const mdp = document.getElementById("mdp");
 const getValueMdp = mdp.value;
 
 const verifMail = () => {
-    const mailRegex = /@/;
-    const mailRegex2 =/[A-Zéèçàëïöüäÿùµñ\&\s~"#'\[\]|\\°\+\=\¨¤£\{\}\^\(\)\$%\!\/]/;
-    const resEmail = mailRegex.test(mail.value);
-    const resEmail2 = mailRegex2.test(mail.value);       
-    if (resEmail===false || resEmail2=== true || mail.value ==="" ) {        
+    const mailRegex = /^[^@\s]{2,30}@[^@\s]{2,30}\.[^@\s]{2,5}$/;   
+    const resEmail = mailRegex.test(mail.value);         
+    if (resEmail===false || mail.value ==="" ) {        
         return false;
     }else{
         console.log("verif identifiant ok");
@@ -22,9 +20,9 @@ const verifMail = () => {
 };
 
 const verifMdp = () => {
-    const mdpRegex = /[\{\}\[\]\$!\(\)\^\s]/g;
+    const mdpRegex = /^[A-Z]{1}[0-9]{1}[a-z]{4}$/ 
     const resMdp = mdpRegex.test(mdp.value);     
-    if (resMdp || mdp.value==="") {        
+    if (resMdp===false || mdp.value==="") {        
         return false;
     }else{
         console.log("vérif mdp ok");

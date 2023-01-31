@@ -23,7 +23,7 @@
 			publier les changements
 		</button>
 	</div>
-	<section id="modale">		
+	<div id="modale">		
 			<div id="winModale">
 				<p class="closeModal" id="x">
 					<i class="fa-solid fa-xmark"></i>
@@ -43,7 +43,7 @@
 				<p id="supprGallerie">Supprimer la gallerie</p>		
 			</div>
 			<div id="winModaleAdd"></div>
-	</section>
+		</div>
 
 <header>	
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
@@ -51,14 +51,15 @@
 		<ul>
 			<li><a href = "#portfolio">projets</a></li>
 			<li><a href = "#contact">contact</a></li>
-			<li><a href = "login.html">login</a></li>
+			<li><a href = "#" id = "logout" class = "notVisible">logout</a></li>
+			<li><a href = "login.html" id = "login">login</a></li>			
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
 </header>
 
 <main>	
-	<section id="introduction">
+	<div id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
 		</figure>			
@@ -69,13 +70,13 @@
 				<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
 				<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 			</article>	
-	</section>
+	</div>
 
 	<section id="portfolio">		
-		<span id = modifierMesProjets>
+		<div id = modifierMesProjets>
 			<h2>Mes Projets</h2>
 			<p id="modifier2" class="notVisible"><i class="fa-regular fa-pen-to-square"></i>     modifier</p>
-		</span>		
+		</div>		
 		<span id = "sectionFiltres"></span>
 		<div id="gallery" class="gallery"></div>		
 	</section>

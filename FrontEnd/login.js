@@ -8,6 +8,10 @@ const getValueEmail = mail.value ="";
 const mdp = document.getElementById("mdp");
 const getValueMdp = mdp.value;
 
+/**
+ * 
+ * @returns regex mail
+ */
 const verifMail = () => {
     const mailRegex = /^[^@\s]{2,30}@[^@\s]{2,30}\.[^@\s]{2,5}$/;   
     const resEmail = mailRegex.test(mail.value);         
@@ -18,6 +22,11 @@ const verifMail = () => {
         return true;
     }
 };
+
+/**
+ * 
+ * @returns regex password
+ */
 
 const verifMdp = () => {
     const mdpRegex = /^[A-Z]{1}[0-9]{1}[a-z]{4}$/ 
@@ -31,20 +40,24 @@ const verifMdp = () => {
 };
 
 document.getElementById ("seConnecter").addEventListener ("click", () => {
-    if (!verifMail()){ alert ("Erreur dans l’identifiant ou le mot de passe");
+    if (!verifMail()){ alert ("Erreur dans l’identifiant ou le mot de passe"); // affichage du message en cas d'erreur de saisie du mail 
     return                                          // arret de la fonction
     }
-    if (!verifMdp()) {alert ("Erreur dans l’identifiant ou le mot de passe");
+    if (!verifMdp()) {alert ("Erreur dans l’identifiant ou le mot de passe"); // affichage du message en cas d'erreur de saisie du mdp 
     return
     }        
     const contact = {
         "email" : mail.value,
         "password" : mdp.value
     }
-    postData(contact);    
+    postData(contact);    //envoyer les informations saisies au backend pour validation connexion
 });
 
 
+/**
+ * 
+ * @param {post contact} contact 
+ */
 const postData = async (contact) => {
     console.log(contact);
     try {
@@ -54,14 +67,14 @@ const postData = async (contact) => {
             "accept": "application/json",       // informer le service web qu'il va recevoir du json
             "content-Type": "application/json",           
          },
-        body : JSON.stringify(contact),              //transformer notre objet JavaScript en JSON
+        body : JSON.stringify(contact),              //transformer notre objet JavaScript en JSON pour être lu en backend
     })
-    if (!respons.ok) {                                                // si le resultat du fetch ne fonctionne pas (ok = false dans la console) 
+    if (!respons.ok) {                                                // si le resultat du fetch ne fonctionne pas (si mail ou mdp erroné) (= false dans la console) 
         throw new Error (`Erreur : ${respons.status}`);
     }
-    const data = await respons.json();          
-         localStorage.setItem("auth",JSON.stringify(data));   // création de la clé --> set = mettre ou créer / get = recupérer
-         window.location.href = "./index.html";            //     redirection
+    const data = await respons.json();          //récupérer et stocker le token pour ajouter ou supprimer les projets via la modale.
+         localStorage.setItem("auth",JSON.stringify(data));   // création et stockage de la clé --> set = mettre ou créer / get = recupérer
+         window.location.href = "./index.html";            //     redirection vers la page d'accueil
     }    
         catch (error) {
             alert (error);

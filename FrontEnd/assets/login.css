@@ -1,22 +1,18 @@
 body {
     background-color : #FCFCF6;
 }
-
 #login {
     font-weight: bold;
 }
-
 #login:hover {
     color : inherit;
 }
-
 .labelConnex{
     align-items : flex-start;
     display : flex;    
 	font-weight:bold;
     font-size : 1em;
 }
-
 #cadreConnection {      
 	display : flex;
 	flex-direction: column;
@@ -24,7 +20,6 @@ body {
 	text-align: center;
 	width : 30%;
 }
-
 #seConnecter {
     background-color: #1D6154;    
     border: none;
@@ -40,7 +35,6 @@ body {
     text-align: center;
 	width: 180px;
 }
-
 .inputConnex {
     border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
@@ -48,11 +42,9 @@ body {
     margin-bottom : 30px;
     width : 100%;    
 }
-
 h2 {
     margin-bottom : 20px;
 }
-
 #mdpOublie {
     color : inherit;
     text-decoration : underline;

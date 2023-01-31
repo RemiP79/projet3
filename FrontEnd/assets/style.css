@@ -16,11 +16,11 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video,a,#winModale, #modale {
-	margin: 0;
-	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+	margin: 0;
+	padding: 0;	
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -48,10 +48,11 @@ table {
 }
 /** end reset css**/
 body {
-	max-width: 1140px;
-	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	max-width: 1140px;
+	margin:auto;
+	
 }
 header {
 	display: flex;
@@ -63,44 +64,41 @@ section {
 }
 
 h1{
+	color: #B1663C;
 	display: flex;
 	flex-direction: column;
 	font-family: 'Syne';
 	font-size: 22px;
 	font-weight: 800;
-	color: #B1663C
+	
 }
 
 h1 > span {
 	font-family: 'Work Sans';
 	font-size:10px;
 	letter-spacing: 0.1em;
-;
 }
-
 h2{
+	color: #1D6154;
 	font-family: 'Syne';
 	font-weight: 700;
-	font-size: 30px;
-	color: #1D6154
+	font-size: 30px;	
 }
 nav ul {
-	display: flex;
 	align-items: center;
+	display: flex;	
 	list-style-type: none;
-
 }
 nav li {
-	padding: 0 10px;
 	font-size: 1.2em;
+	padding: 0 10px;	
 }
-
 li:hover {
 	color: #B1663C;
 }
 #introduction {
-	display: flex;
 	align-items: center;
+	display: flex;	
 }
 #introduction figure {
 	flex: 1
@@ -110,25 +108,18 @@ li:hover {
 	margin: auto;
 	width: 80%;
 }
-
 #introduction article {
 	flex: 1
 }
 #introduction h2 {
-	margin-bottom: 1em;
-	
+	margin-bottom: 1em;	
 }
-
-
-
-
-
 #introduction p {
 	margin-bottom: 0.5em;
 }
 #portfolio h2 {
-	text-align: center;
 	margin-bottom: 1em;
+	text-align: center;	
 }
 
 /* PARTIE AJOUTEE */
@@ -144,7 +135,6 @@ a {
 	margin : 0 auto 30px;	
 	width : 65%;	
 }
-
 input[type="button"] {
 	background-color: white;	
 	border : 1px solid #1D6154;
@@ -157,17 +147,13 @@ input[type="button"] {
 	padding-bottom : 10px;		
 	text-align: center;	
 }
-
 .notVisible {
 	display :none !important;
 }
-
 .boutonFiltre:hover {
 	background-color: #1D6154;
 	color : white;
 }
-
-
 #modifier {
 	margin-bottom: 30px;
 	padding-bottom : 1em;
@@ -180,25 +166,21 @@ input[type="button"] {
 
 #modifierMesProjets {
 	display : flex;
-	justify-content: center;
-	margin-bottom: none;
+	justify-content: center;	
 }
 
 #barreNoire {	
-
 	background-color: black;
     display: none;
-    height: 40px;
-    width: 100%;
+    height: 40px;    
     justify-content: center;
+	width: 100%;
 }
-
 #barreNoire p {	
 	color : white;
 	font-size: 120%;	
 	margin : auto 5px;
 }
-
 #publierLesChangements {	
 	border : 2px solid black;
 	background-color : white;
@@ -212,46 +194,40 @@ input[type="button"] {
 #modale {
 	background-color: rgba(0, 0, 0, 0.3);
     display: none;
+	flex-direction: column;
     height: 100%;
     justify-content: center;
     left: 0;
     margin-top: 0;
     position: absolute;
+	position: fixed;
     top: 0px;
     width: 100%;
     z-index: 1000;
-    position: fixed;
-    flex-direction: column;
 }
-
-
-
 #winModale {
 	background-color: #fefefe;
-    margin: 50px auto;
-    padding: 20px;
-    width: 60%;
-    height: 950px;
-    border-radius: 10px;
-    display: none;
+	border-radius: 10px;
+	display: none;
+	height: 950px;
     flex-direction: column;
-    overflow-y: scroll;
+	margin: 50px auto;
+	overflow-y: scroll;  	
+	padding: 20px;
+	width: 60%;
 	z-index :1001;
 }
-
 #x {
 	font-weight: bold;
 	text-align: right;
 	width : 100%;    
 }
-
 #titreModale {	
 	font-size : 150%;
 	padding-top : 0;
 	text-align : center;	 
 	width: 100%; 
 }
-
 #gallery2 {
 	display : flex;	
 	flex-wrap : wrap;	
@@ -259,13 +235,11 @@ input[type="button"] {
 	margin : 20px auto 0;	
 	width : 90%;
 }
-
 #gallery2 figure {	
 	margin : 0 5px;
 	width : 20%; 
 	position:relative; 
 }
-
 #gallery2 figure div {
     position: absolute;
     top: -15px;
@@ -275,7 +249,6 @@ input[type="button"] {
 	margin-top : 10px;
 	width : 100%;	
 }
-
 .iconePoub {
 	background-color: black;
 	color: white;
@@ -286,7 +259,6 @@ input[type="button"] {
     padding: 4px;
 	font-size : 0.5em;	
 }
-
 .iconeFleche {
 	background-color: black;
 	color: white;
@@ -297,17 +269,14 @@ input[type="button"] {
     text-align: center;       
     top: 30px;	
 }
-
 #gallery2 figcaption {
 	font-size: 60%;
 }
-
 #trait .trait{
 	border-bottom : 2px solid grey;
 	margin : 30px auto 0;	
 	width : 70%;	
 }
-
 #ajouterPhoto{
 	background-color: #1D6154;	
 	border : 1px solid #1D6154;
@@ -322,7 +291,6 @@ input[type="button"] {
 	text-align: center;	
 	width : 40%;	
 }
-
 #supprGallerie {
 	color : #CF5035;
 	font-family: 'Syne';
@@ -330,25 +298,22 @@ input[type="button"] {
 	padding-top : 0;
 	text-align : center;	
 }
-
 #winModaleAdd {
-	background-color: #fefefe;
-    margin: 50px auto;
-    padding: 20px;
-    width: 60%;
-    height: 850px;
-    border-radius: 10px;
+	background-color: #fefefe;    
+	border-radius: 10px;
     display: none;
     flex-direction: column;
-    overflow-y: scroll;
+	height: 850px;
+	margin: 50px auto;
+	overflow-y: scroll;
+	padding: 20px;
+	width: 60%;
 }
-
 #iconesModifImage {
 	display: flex;
     justify-content: space-between;
     padding: 20px 0;
 }
-
 #titreModale2{
 	font-size : 150%;
 	padding-top : 0;
@@ -356,116 +321,95 @@ input[type="button"] {
 	width: 100%; 
 	margin-bottom: 20px;
 }
-
 #cadreAjoutImg {
+	align-items: center;
 	background-color: rgba(221, 243, 243, 0.5);
-	height: 40%;
 	display : flex;
 	flex-direction: column;
-	align-items: center;
+	height: 40%;
 	padding: 20px;
     justify-content: space-between;
 }
-
 #imageModif {
-	font-size: 4.3em;
 	color: grey;
+	font-size: 4.3em;	
     opacity: 0.4;
 }
-
 #ajoutPhoto {
+	background-color: #B2CDD2;
+	border-radius: 20px;
+	color: #0D7B8D;
 	font-weight: 600;
+	margin: 30px auto;
     padding: 10px;
-    border-radius: 20px;
-    width: 100%;
-    background-color: #B2CDD2;
-    color: #0D7B8D;
-	/*VOrem*/
 	text-align: center;
     width: 60%;
-    margin: 30px auto;
-	
 }
-
 #cadreAjoutImg p {
 	font-size : 0.8em;
 	margin-top: 5px;
 }
-
 #formAjoutPhoto {
 	display: flex;
     flex-direction: column;
 }
-
-#formAjoutPhoto, label {
-	
+#formAjoutPhoto, label {	
     margin: 20px 0 10px;
 }
-
 #textAjoutPhoto  {
 	box-shadow: 0px 5px 8px rgb(0 0 0 / 10%);
 	height : 50px;
 	border : none;
 }
 #catges {
-	box-shadow: 0px 5px 8px rgb(0 0 0 / 10%);
-	height : 50px;
 	border : none;
+	box-shadow: 0px 5px 8px rgb(0 0 0 / 10%);
+	height : 50px;	
 }
 .trait{
 	border-bottom : 2px solid grey;
 	margin : 50px auto 0;	
 	width : 100%;	
 }
-
-
 .cadreWinmod{
 	margin : 0 40px;
 }
-
-#validModifPhoto {
-	color : white;
-	background-color : grey;
+#validModifPhoto {	
+	/*background-color : grey;*/
 	border-radius: 60px;	
+	color : white;
 	font-family: 'Syne';
 	font-size : 120%;
-	font-weight: 700;
-	margin : 50px auto 20px;	
+	font-weight: 700;	
+	margin : 40px auto;	
 	padding-bottom : 10px;
 	padding-top : 10px;		
 	text-align: center;	
-	width : 40%;
-	margin : 40px auto;
+	width : 40%;	
 }
-
 #divLabelFile{
-	/*display: inline-block;*/
 	display : flex;
 	flex-direction: column;
-  position: relative;
-  overflow: hidden;
-  width : 100%;
+  	position: relative;
+  	overflow: hidden;
+  	width : 100%;
 }
-
 #file {
-	left: 0;
-  top: 0;
-  opacity : 0;
-  position: absolute;
-  width : 100%;
-  height : 100%;	
+	height : 100%;
+	left: 0;	
+	opacity : 0;
+	position: absolute;
+	top: 0;
+	width : 100%;		
 }
-
 .iconePoub,  #modifier, #modifier2, .iconeFleche, #supprGallerie, #ajouterPhoto,
- #x, .fa-arrow-left, .fa-xmark, #boutonTypeFile{
+ #x, .fa-arrow-left, .fa-xmark, #boutonTypeFile, #logout{
 	cursor :pointer;
 }
-
 #preview {
 	object-fit: scale-down;
     text-align: center;
 }
-
 #thumbi {
 	max-height: 200px;
     max-width: 50%;
@@ -474,41 +418,37 @@ input[type="button"] {
 /* = = = = = = = */
 
 
-.gallery {
-	width: 100%;
+.gallery {	
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
+	width: 100%;
 }
-
 .gallery img {
 	width: 100%;
-
 }
 #contact {
+	margin: auto;
 	width: 50%;
-margin: auto;
 }
 #contact > * {
 	text-align: center;
-
 }
 #contact h2{
 	margin-bottom: 20px;
 }
 #contact form {
-	text-align: left;
-	margin-top:30px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: column;	
+	margin-top:30px;
+	text-align: left;
 }
-
 #contact input {
-	height: 50px;
-	font-size: 1.2em;
 	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);	
+	font-size: 1.2em;
+	height: 50px;	
 }
 #contact label {
 	margin: 2em 0 1em 0;
@@ -519,16 +459,15 @@ margin: auto;
 }
 
 input[type="submit"] {
+	background-color: #1D6154;
+	border-radius: 60px ;
+	color: white;
 	font-family: 'Syne';
 	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
 	margin : 2em auto ;
-	width: 180px;
 	text-align: center;
-	border-radius: 60px ;
+	width: 180px;
 }
-
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;

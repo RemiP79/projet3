@@ -287,19 +287,19 @@ const windowModaleAdd = (data) => {
     const sendData = document.createElement("button");
     sendData.setAttribute("id", "validModifPhoto");
     sendData.textContent = "Valider";
+    sendData.addEventListener("mouseover", ()=>{
+        sendData.style.background = "#1D6154";
+    });
+    sendData.addEventListener("mouseout", ()=>{
+        sendData.style.background = "grey";
+    });
 
     
    sendData.addEventListener("click", envoiNouveauProjet);
 
 
    //================================================================
-   sendData.addEventListener("change", () =>{
-   if(inputText.textContent==""){
-    sendData.style.backgroundColor = "pink";
-   }else{    
-    sendData.style.backgroundColor = "blue";    
-   }
-});
+   
    //===========================================
    
     divLabelFile.append(
@@ -352,19 +352,7 @@ const isConnected = () => {
         modifier2.addEventListener("click", openModal);
 
 
-        const clickLogOut = () => {        
-            localStorage.removeItem("auth");
-            document.getElementById("logout").classList.add("notVisible");
-            document.getElementById("login").classList.toggle("notVisible");
-            document.getElementById("barreNoire").style.display = "none";
-            document.getElementById("modifier").classList.toggle("notVisible");
-            document.getElementById("modifier2").classList.toggle("notVisible");
-            window.location.href = "./index.html";
-        }
-
-        document.getElementById("logout").classList.remove("notVisible");
-        document.getElementById("logout").addEventListener("click", clickLogOut);
-        document.getElementById("login").classList.add("notVisible");
+        
     }
     
     document.getElementById("x").addEventListener("click", closeModale);
@@ -523,5 +511,19 @@ const supprProjet = async(e) => {
     return false   // ??
     
 };
+
+const clickLogOut = () => {        
+    localStorage.removeItem("auth");
+    document.getElementById("logout").classList.add("notVisible");
+    document.getElementById("login").classList.toggle("notVisible");
+    document.getElementById("barreNoire").style.display = "none";
+    document.getElementById("modifier").classList.toggle("notVisible");
+    document.getElementById("modifier2").classList.toggle("notVisible");
+    
+}
+
+document.getElementById("logout").classList.remove("notVisible");
+document.getElementById("logout").addEventListener("click", clickLogOut);
+document.getElementById("login").classList.add("notVisible");
 
 getData();

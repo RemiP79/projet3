@@ -375,7 +375,7 @@ input[type="button"] {
 	margin : 0 40px;
 }
 #validModifPhoto {	
-	/*background-color : grey;*/
+	background-color : grey;
 	border-radius: 60px;	
 	color : white;
 	font-family: 'Syne';

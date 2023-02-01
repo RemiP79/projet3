@@ -18,7 +18,7 @@ const verifMail = () => {
     if (resEmail===false || mail.value ==="" ) {        
         return false;
     }else{
-        console.log("verif identifiant ok");
+        //console.log("verif identifiant ok");
         return true;
     }
 };
@@ -34,7 +34,7 @@ const verifMdp = () => {
     if (resMdp===false || mdp.value==="") {        
         return false;
     }else{
-        console.log("vérif mdp ok");
+        //console.log("vérif mdp ok");
         return true;
     }
 };

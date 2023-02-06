@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/
+/* http://meyerweb.com/eric/tools/css/reset/boutonFiltre
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -123,6 +123,10 @@ li:hover {
 }
 
 /* PARTIE AJOUTEE */
+body {
+	background-color: #FCFCF6;
+}
+
 a {
 	color : inherit;
 	text-decoration: none;	
@@ -132,11 +136,11 @@ a {
 	display : flex;
 	flex-wrap : wrap;
 	justify-content : space-between;
-	margin : 0 auto 30px;	
-	width : 65%;	
+	margin : 20px auto 50px;	
+	width : 55%;	
 }
 input[type="button"] {
-	background-color: white;	
+	background-color: #FCFCF6;	
 	border : 1px solid #1D6154;
 	border-radius: 60px ;	
 	color: #1D6154;	
@@ -152,7 +156,11 @@ input[type="button"] {
 }
 .boutonFiltre:hover {
 	background-color: #1D6154;
-	color : white;
+	color : #FCFCF6;
+}
+
+.boutonFiltre {
+	background-color: #FCFCF6;
 }
 #modifier {
 	margin-bottom: 30px;
@@ -162,6 +170,10 @@ input[type="button"] {
 #modifier2{
 	margin-top : 0.7em;
 	margin-left : 1.5em;	
+}
+#modifier3{
+	margin-left: 3.8em;
+    margin-top: 20px;	
 }
 
 #modifierMesProjets {
@@ -251,26 +263,28 @@ input[type="button"] {
 }
 .iconePoub {
 	background-color: black;
+	border-radius: 5px;
 	color: white;
-	left: 45%;
+	left: 30%;
 	position: relative;    
-    top: 30px;    
+    top: 35px;    
     text-align: center;
-    padding: 4px;
-	font-size : 0.5em;	
+    padding: 6px 8px;
+	font-size : 1.5em;	
 }
 .iconeFleche {
 	background-color: black;
+	border-radius: 5px;
 	color: white;
-	font-size : 0.5em;
-    left: 40%;
-    padding: 4px;
+	font-size : 1.5em;
+    left: 20%;
+    padding: 6px;
 	position: relative;     
     text-align: center;       
-    top: 30px;	
+    top: 35px;	
 }
 #gallery2 figcaption {
-	font-size: 60%;
+	font-size: 1.2em;
 }
 #trait .trait{
 	border-bottom : 2px solid grey;
@@ -295,7 +309,8 @@ input[type="button"] {
 	color : #CF5035;
 	font-family: 'Syne';
 	font-size : 100%;
-	padding-top : 0;
+	padding-bottom : 40px;
+	padding-top : 5px;
 	text-align : center;	
 }
 #winModaleAdd {
@@ -332,7 +347,8 @@ input[type="button"] {
 }
 #imageModif {
 	color: grey;
-	font-size: 4.3em;	
+	font-size: 5em;	
+	margin-top : 10px;
     opacity: 0.4;
 }
 #ajoutPhoto {
@@ -341,9 +357,9 @@ input[type="button"] {
 	color: #0D7B8D;
 	font-weight: 600;
 	margin: 30px auto;
-    padding: 10px;
+    padding: 15px;
 	text-align: center;
-    width: 60%;
+    width: 40%;
 }
 #cadreAjoutImg p {
 	font-size : 0.8em;
@@ -402,7 +418,7 @@ input[type="button"] {
 	top: 0;
 	width : 100%;		
 }
-.iconePoub,  #modifier, #modifier2, .iconeFleche, #supprGallerie, #ajouterPhoto,
+.iconePoub,  #modifier, #modifier2, #modifier3, .iconeFleche, #supprGallerie, #ajouterPhoto,
  #x, .fa-arrow-left, .fa-xmark, #boutonTypeFile, #logout{
 	cursor :pointer;
 }

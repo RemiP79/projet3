@@ -1,5 +1,5 @@
 /**
- * //recupère les information des projets dans la back(création d'une fonction getData qui est asynchrone)
+ * //recupère les information des projets dans le back(création d'une fonction getData qui est asynchrone)
  * @param {Objet} 
  */
 const getData = async () => {
@@ -61,8 +61,7 @@ const createWorksByCat = (data) => {
     let sectionFiltres = document.getElementById("sectionFiltres");
 
     // bouton "tous"
-    let boutonTous = document.createElement("input");
-    
+    let boutonTous = document.createElement("input");    
     boutonTous.setAttribute("type", "button");
     boutonTous.setAttribute("value", "  Tous  ");
     boutonTous.setAttribute("class", "boutonFiltre");
@@ -78,7 +77,7 @@ const createWorksByCat = (data) => {
     boutonTous.addEventListener("click", (e) => {
         clickBouton(e);
     });
-    //console.log(boutonTous);
+        
     sectionFiltres.append(boutonTous);
 
     // autres boutons : boucle qui affiche le nombre de boutons en fonction des "category" du back
@@ -103,12 +102,12 @@ const createWorksByCat = (data) => {
 };
 
 const mouseov = (e) => {
-    e.style.color = "white";
+    e.style.color = "#FCFCF6";
     e.style.background = "#1D6154";
 };
 const mouseOut = (e) => {
     e.style.color = "#1D6154";
-    e.style.background = "white";
+    e.style.background = "#FCFCF6";
 };
 
 /**
@@ -148,12 +147,19 @@ const isConnected = () => {
         const modifier2 = document.getElementById("modifier2");         // afficher le deuxième modifier
         modifier2.classList.toggle("notVisible");
 
+        const modifier3 = document.getElementById("modifier3");           //afficher modifier
+        modifier3.classList.toggle("notVisible");
+
         document.getElementById("barreNoire").style.display = "flex";   // afficher la barre noire
         modifier.addEventListener("click", openModal);                  // ouverture de la modale
-        modifier2.addEventListener("click", openModal);        
+        modifier2.addEventListener("click", openModal);
+        modifier3.addEventListener("click", openModal);       
        
         document.getElementById("logout").classList.remove("notVisible");
-        document.getElementById("login").classList.add("notVisible");        
+        document.getElementById("login").classList.add("notVisible"); 
+        
+        document.getElementById("sectionFiltres").style.display = "none";
+        document.getElementById("gallery").style.marginTop = "40px";
     }
     
     document.getElementById("x").addEventListener("click", closeModale);
@@ -203,7 +209,7 @@ const createWorksModale = (data) => {
     img.setAttribute("src", data.imageUrl);                              // récupération de l'adresse de l'image
     img.setAttribute("alt", data.title);                                 // récupération du nom de l'image
     img.setAttribute("class", "imgGall2");
-    figcaption.textContent = "Editer";
+    figcaption.textContent = "éditer";
     iconePoub.setAttribute("class", "fa-solid fa-trash-can iconePoub");
     iconePoub.setAttribute("id", `poub_${data.id}`);                    // utilisé pour cibler le projet à supprimer dans fonction supprProjet (url ftech)
     iconeFleche.setAttribute(
@@ -401,11 +407,11 @@ const ChangeImg = (e) => {
     let preview = document.getElementById("preview");
     preview.appendChild(imageMin);
     let reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = (e) => {                                    //Chargement de l'image
         imageMin.src = e.target.result;    
     };
     
-    reader.readAsDataURL(img.file);                                         //utilisée afin de lire le contenu d'un blob (Blob) ou d'un fichier (File).
+    reader.readAsDataURL(img.file);                                         //utilisée afin de lire le contenu d'un fichier (File).
     document.getElementById("imageModif").classList.add("notVisible");     //enlève l'icone d'image 
 };
 
@@ -529,7 +535,9 @@ const clickLogOut = () => {
     document.getElementById("login").classList.toggle("notVisible");
     document.getElementById("barreNoire").style.display = "none";
     document.getElementById("modifier").classList.toggle("notVisible");
-    document.getElementById("modifier2").classList.toggle("notVisible");    
+    document.getElementById("modifier2").classList.toggle("notVisible");
+    document.getElementById("modifier3").classList.toggle("notVisible");
+    document.getElementById("sectionFiltres").style.display = "flex";    
 }
 document.getElementById("logout").addEventListener("click", clickLogOut);
 

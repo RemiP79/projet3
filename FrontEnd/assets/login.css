@@ -2,7 +2,7 @@ body {
     background-color : #FCFCF6;
 }
 #login {
-    font-weight: bold;
+    font-weight: bold;    
 }
 #login:hover {
     color : inherit;
@@ -12,7 +12,9 @@ body {
     display : flex;    
 	font-weight:bold;
     font-size : 1em;
+    margin-bottom : 0;   
 }
+
 #cadreConnection {      
 	display : flex;
 	flex-direction: column;
@@ -21,25 +23,25 @@ body {
 	width : 30%;
 }
 #seConnecter {
-    background-color: #1D6154;    
+    background-color: #1D6154;
     border: none;
-    border-radius: 60px ;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    border-radius: 60px;
+    box-shadow: 0px 4px 14px rgb(0 0 0 / 9%);
     color: white;
     cursor: pointer;
     font-family: 'Syne';
-    font-size: 1.2em;
-	font-weight: 700;
-    height: 50px;
-	margin : 1.5em auto ;
+    font-size: 1em;
+    font-weight: 700;
+    height: 35px;
+    margin: 0 auto 1.5em;
     text-align: center;
-	width: 180px;
+    width: 180px;
 }
 .inputConnex {
     border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
     height : 40px;
-    margin-bottom : 30px;
+    margin-bottom : 10px;
     width : 100%;    
 }
 h2 {
@@ -49,4 +51,7 @@ h2 {
     color : inherit;
     text-decoration : underline;
     cursor : pointer;
+}
+#footerLogin{
+    margin-top : 200px;
 }

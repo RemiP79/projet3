@@ -162,9 +162,10 @@ input[type="button"] {
 .boutonFiltre {
 	background-color: #FCFCF6;
 }
-#modifier {
-	margin-bottom: 30px;
-	padding-bottom : 1em;
+
+.couleurBoutonClic {
+	color : "#FCFCF6";
+    background : "#1D6154";
 }
 
 #modifier2{
@@ -418,7 +419,7 @@ input[type="button"] {
 	top: 0;
 	width : 100%;		
 }
-.iconePoub,  #modifier, #modifier2, #modifier3, .iconeFleche, #supprGallerie, #ajouterPhoto,
+.iconePoub, #modifier2, #modifier3, .iconeFleche, #supprGallerie, #ajouterPhoto,
  #x, .fa-arrow-left, .fa-xmark, #boutonTypeFile, #logout{
 	cursor :pointer;
 }

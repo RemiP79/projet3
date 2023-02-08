@@ -8,16 +8,16 @@ const getData = async () => {
         if (!respons.ok) {
             throw new Error(`Erreur : ${respons.status}`);          // le programme s'arrête (throw) on sort du bloc try et on va dans le bloc catch
         }
-        const data = await respons.json();
+        const projets = await respons.json();
         let categoryIds = [];                                       // tableau temporaire qui va permettre d'éviter la répétition des ID des catégories
         let categorys = [];     
 
-        for (let elem of data) {
-            createWorks(elem);                                      // boucle qui permet d'afficher les projets sur la page d'accueil
-            createWorksModale(elem);                                // boucle qui permet d'afficher les projets dans la modale
-            if (!categoryIds.includes(elem.categoryId)) {
-                categoryIds.push(elem.categoryId); 
-                categorys.push(elem.category);                      // utilisé pour faire les filtres          
+        for (let projet of projets) {
+            createWorks(projet);                                      // boucle qui permet d'afficher les projets sur la page d'accueil
+            createWorksModale(projet);                                // boucle qui permet d'afficher les projets dans la modale
+            if (!categoryIds.includes(projet.categoryId)) {
+                categoryIds.push(projet.categoryId); 
+                categorys.push(projet.category);                      // utilisé pour faire les filtres          
             }
             //console.log(categorys);
         }
@@ -74,7 +74,7 @@ const createWorksByCat = (data) => {
     boutonTous.addEventListener("mouseout", () => {
         mouseOut(boutonTous);
     });
-    boutonTous.addEventListener("click", (e) => {
+    boutonTous.addEventListener("click", (e) => {        
         clickBouton(e);
     });
         
@@ -114,7 +114,7 @@ const mouseOut = (e) => {
  *filtrer les projets sur page d'accueil
  * @param {event} e  
  */
-const clickBouton = (e) => {
+const clickBouton = (e) => {    
     const allClass = document.getElementsByClassName("fig");
     for (let elem of allClass) {                                         // pour tous les elements figures
         if (e.target.id !== "0") {                                       // si l'ID du bouton est différent de Zéro
@@ -123,8 +123,8 @@ const clickBouton = (e) => {
                 elem.classList.add("notVisible");                        //sont non visibles
             } else {
                 if (elem.classList.contains("notVisible")) {            // sinon si les autres élément (dont data-cat=id) sont non visibles
-                    elem.classList.remove("notVisible");                // on les rend visibles
-                }
+                    elem.classList.remove("notVisible");               // on les rend visibles                                        
+                }                
             }
         } else { // on affiche le contenu du bouton Tous
             if (elem.classList.contains("notVisible")) {                // sinon, si data-cat = 0
@@ -140,10 +140,7 @@ const clickBouton = (e) => {
  * verifier que l'utilisateur soit identifié
  */
 const isConnected = () => {
-    if (localStorage.getItem("auth")) {                                 
-        const modifier = document.getElementById("modifier");           //afficher modifier
-        modifier.classList.toggle("notVisible");
-
+    if (localStorage.getItem("auth")) { 
         const modifier2 = document.getElementById("modifier2");         // afficher le deuxième modifier
         modifier2.classList.toggle("notVisible");
 
@@ -151,7 +148,6 @@ const isConnected = () => {
         modifier3.classList.toggle("notVisible");
 
         document.getElementById("barreNoire").style.display = "flex";   // afficher la barre noire
-        modifier.addEventListener("click", openModal);                  // ouverture de la modale
         modifier2.addEventListener("click", openModal);
         modifier3.addEventListener("click", openModal);       
        
@@ -226,9 +222,7 @@ const createWorksModale = (data) => {
     iconeFleche.addEventListener("click", () => {
         alert("en cours de réalisation");
     });
-    document.getElementById("supprGallerie").addEventListener("click", () => {
-        alert("fonction en cours de réalisation");
-    });   
+      
     document.getElementById("ajouterPhoto").addEventListener("click", () => {
         document.getElementById("modale").style.display = "flex";
         document.getElementById("winModale").style.display = "none";
@@ -242,7 +236,9 @@ const createWorksModale = (data) => {
         document.getElementById("catges").selectedIndex = 0;
     });
 };
-
+document.getElementById("supprGallerie").addEventListener("click", () => {
+    alert("fonction en cours de réalisation");
+}); 
 /**
  * Construction Fenetre winmodale2 pour ajouter un projet
  * @param {Array} data
@@ -297,7 +293,7 @@ const windowModaleAdd = (data) => {
     inputFile.setAttribute("class", "input-file"); //
     inputFile.setAttribute("accept", ".png,.jpg,.jpeg");
     
-    inputFile.addEventListener("change", ChangeImg);            
+    inputFile.addEventListener("change", changeImg);            
     
     const infoTypeImg = document.createElement("p");
     infoTypeImg.textContent = "jpg,png 4mo max";
@@ -392,7 +388,7 @@ let img = {
 };
 
 
-const ChangeImg = (e) => {
+const changeImg = (e) => {
     if (document.getElementById("thumbi") !== null) {           //efface l'image miniature précedente si elle est présente
         document.getElementById("thumbi").remove();
     }   
@@ -450,7 +446,7 @@ const envoiNouveauProjet = async (e) => {
             method: "POST",
             headers: {
                 Accept: "application/json",
-                Content: "multipart/form-data",
+                Content: "multipart/form-data",             // informer l'envoi d'une image
                 Authorization: "Bearer " + auth.token,
             },
             body: formData,
@@ -533,8 +529,7 @@ const clickLogOut = () => {
     localStorage.removeItem("auth");
     document.getElementById("logout").classList.add("notVisible");
     document.getElementById("login").classList.toggle("notVisible");
-    document.getElementById("barreNoire").style.display = "none";
-    document.getElementById("modifier").classList.toggle("notVisible");
+    document.getElementById("barreNoire").style.display = "none";   
     document.getElementById("modifier2").classList.toggle("notVisible");
     document.getElementById("modifier3").classList.toggle("notVisible");
     document.getElementById("sectionFiltres").style.display = "flex";    
